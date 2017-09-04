@@ -11,9 +11,18 @@ namespace EssentialTools.Models
         //{
         //    return products.Sum(p => p.Price);
         //}
+        //public decimal ValueProducts(IEnumerable<Product> products)
+        //{
+        //    return products.Sum(p => p.Price);
+        //}
+        private IDiscountHelper discounter;
+        public LinqValueCalculator(IDiscountHelper discountParam)
+        {
+            discounter = discountParam;
+        }
         public decimal ValueProducts(IEnumerable<Product> products)
         {
-            return products.Sum(p => p.Price);
+            return discounter.ApplyDiscount(products.Sum(p => p.Price));
         }
     }
 }
