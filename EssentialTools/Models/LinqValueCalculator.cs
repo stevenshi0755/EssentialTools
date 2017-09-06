@@ -15,10 +15,22 @@ namespace EssentialTools.Models
         //{
         //    return products.Sum(p => p.Price);
         //}
+        //private IDiscountHelper discounter;
+        //public LinqValueCalculator(IDiscountHelper discountParam)
+        //{
+        //    discounter = discountParam;
+        //}
+        //public decimal ValueProducts(IEnumerable<Product> products)
+        //{
+        //    return discounter.ApplyDiscount(products.Sum(p => p.Price));
+        //}
+        //115 6.2.8
         private IDiscountHelper discounter;
+        private static int counter = 0;
         public LinqValueCalculator(IDiscountHelper discountParam)
         {
             discounter = discountParam;
+            System.Diagnostics.Debug.WriteLine(string.Format("Instance{0} created", ++counter));
         }
         public decimal ValueProducts(IEnumerable<Product> products)
         {

@@ -18,7 +18,7 @@ namespace EssentialTools.Controllers
             new Product {Name="Soccer ball",Category="Soccer",Price=19.5m},
             new Product {Name="Corner flag",Category="Soccer",Price=34.95m}
         };
-        public HomeController(IValueCalculator calcParam)
+        public HomeController(IValueCalculator calcParam,IValueCalculator calc2)
         {
             calc = calcParam;
         }
